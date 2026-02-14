@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Local runtime/cache directories
+.cache/
+.local/
+
+# Generated audio (keep only the showcase sample in git)
+*.wav
+!prospector_cartoon2.wav
+*.m4a
