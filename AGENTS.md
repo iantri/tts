@@ -3,6 +3,7 @@
 ## Project Structure & Module Organization
 - `qwen3_tts_cli.py`: direct text-to-speech CLI for `voice-design` and `custom-voice` models.
 - `qwen3_clone_cli.py`: voice cloning CLI for the base model using reference audio.
+- `qwen3_tui.py`: interactive text UI wrapper around both CLI scripts.
 - `README.md`: user-facing quickstart and command examples for both tools.
 - `prospector_cartoon2.wav`: checked-in showcase output sample.
 - `.gitignore`: excludes local caches/generated audio while allowing showcase sample.
@@ -13,6 +14,7 @@
 - `python qwen3_tts_cli.py --model voice-design --instruct "warm narration" "Hello world"`: generate with instruction-driven voice.
 - `python qwen3_tts_cli.py --model custom-voice --speaker Vivian "Test"`: generate with named custom speaker.
 - `python qwen3_clone_cli.py --ref-audio your_reference.wav --ref-text "sample" "new line"`: cloning flow with transcript.
+- `python qwen3_tui.py`: interactive wizard for selecting mode and configuring options.
 - `python qwen3_tts_cli.py --model voice-design --language English --output prospector_cartoon2.wav --instruct "Cartoon old-timey Wild West prospector, wiry elderly male voice, bright nasal twang with exaggerated frontier drawl, high-energy comedic shouting, big pitch jumps on excited words, dramatic pauses and gleeful yelps, crisp intelligible words without distortion." "There's gold in these hills! Gold!! Yippeee!! Ho-ho! Strike up the banjo, we're rich by sunset!"`: reproduce the checked-in showcase sample.
 - If you hit a numba cache error, prefix commands with `NUMBA_CACHE_DIR=/tmp/numba-cache`.
 

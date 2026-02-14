@@ -6,6 +6,7 @@ Two command-line tools for Qwen3 text-to-speech:
 
 - `qwen3_tts_cli.py`: text-to-speech with `voice-design` and `custom-voice`
 - `qwen3_clone_cli.py`: voice cloning from a reference WAV
+- `qwen3_tui.py`: interactive text UI wizard that wraps both scripts
 
 Included showcase sample:
 
@@ -157,7 +158,32 @@ python qwen3_clone_cli.py \
   "Quick cloned sample without ref text."
 ```
 
-## 5. Writing Better `--instruct` Prompts (Voice Control)
+## 5. Interactive TUI: `qwen3_tui.py`
+
+Run the interactive wizard:
+
+```bash
+python qwen3_tui.py
+```
+
+What it does:
+
+- Presents a menu for `voice-design`, `custom-voice`, or `voice clone`
+- Prompts for required fields (text, output path, instruct/speaker/ref-audio/ref-text)
+- Optionally prompts for advanced generation/runtime settings
+- Shows the final command before execution and asks for confirmation
+- Runs the underlying scripts (`qwen3_tts_cli.py` / `qwen3_clone_cli.py`)
+- After successful generation, optionally plays audio via macOS `afplay`
+
+By default, it sets `NUMBA_CACHE_DIR=/tmp/numba-cache` for launched commands.
+
+Disable that behavior:
+
+```bash
+python qwen3_tui.py --no-numba-cache
+```
+
+## 6. Writing Better `--instruct` Prompts (Voice Control)
 
 Based on Qwen3-TTS guidance from the official release/docs:
 
@@ -182,7 +208,7 @@ Reusable template:
 [persona + age/context], [timbre + pitch + accent], [emotion + pacing + rhythm], [constraints for clarity/stability]
 ```
 
-## 6. Reproduce Included Example
+## 7. Reproduce Included Example
 
 Command used to generate `prospector_cartoon2.wav`:
 
@@ -201,7 +227,7 @@ If needed:
 NUMBA_CACHE_DIR=/tmp/numba-cache python qwen3_tts_cli.py ...
 ```
 
-## 7. Output Check
+## 8. Output Check
 
 ```bash
 ls -lh *.wav
